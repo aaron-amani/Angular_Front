@@ -23,7 +23,7 @@ export class TicketListComponent implements OnInit {
   }
 
   deleteTicket(ticket: Ticket) {
-    this.deleteTicket(ticket);
+    this.ticketService.deleteTicket(ticket);
   }
 
 
