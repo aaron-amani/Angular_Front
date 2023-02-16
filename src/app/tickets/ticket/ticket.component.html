@@ -1,6 +1,11 @@
 <div class="card ticket" (click)="selectTicket()">
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
-  <h3>{{ticket.title}}</h3>
+  <h3>titre commun modifié</h3>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-  <i class="far fa-user"></i> {{ticket.author}}
+  <i class="far fa-user"></i> {{ticket.student}} &nbsp;&nbsp;
+  <div *ngIf="ticket.major == 'L'"> 📖📝 {{ticket.major}}</div>
+  <div *ngIf="ticket.major == 'S-SVT'"> 🧪🧬 {{ticket.major}}</div>
+  <div *ngIf="ticket.major == 'S-SI'"> ⚙️ 📐 {{ticket.major}}</div>
+  <div *ngIf="ticket.major == 'ES'"> 📊📈 {{ticket.major}}</div>
+  <button type="submit" class="btn-custom" (click)="deleteTicket()">Remove</button>
 </div>
