@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TicketService } from '../../../services/ticket/ticket.service';
-import { Ticket } from '../../../models/ticket';
+import { Major, Ticket } from '../../../models/ticket';
 
 @Component({
   selector: 'app-ticket-form',
@@ -10,6 +10,7 @@ import { Ticket } from '../../../models/ticket';
 })
 export class TicketFormComponent implements OnInit {
 
+  
   // Note: We are using here ReactiveForms to create our form. Be careful when you look for some documentation to
   // avoid TemplateDrivenForm (another type of form)
   /**
@@ -18,13 +19,17 @@ export class TicketFormComponent implements OnInit {
    */
   public ticketForm: FormGroup;
 
+  public MAJOR_LIST: Major[] = [Major.rien,Major.L, Major.ES, Major.S_SI, Major.S_SVT];
+
   constructor(public formBuilder: FormBuilder, public ticketService: TicketService) {
     // Form creation
+
     this.ticketForm = this.formBuilder.group({
       title: [''],
       description: [''],
       major: ['']
     });
+
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
@@ -41,5 +46,4 @@ export class TicketFormComponent implements OnInit {
   }
 
   
-
 }

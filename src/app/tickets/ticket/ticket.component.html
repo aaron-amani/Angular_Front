@@ -8,5 +8,10 @@
   <div *ngIf="ticket.major == 'S-SVT'"> 🧪🧬 {{ticket.major}}</div>
   <div *ngIf="ticket.major == 'S-SI'"> ⚙️ 📐 {{ticket.major}}</div>
   <div *ngIf="ticket.major == 'ES'"> 📊📈 {{ticket.major}}</div>
-  <button class="btn-custom" (click)="deleteTicket()">Remove</button>
+  <button (click)="archiveTicket()">
+    
+    <div *ngIf="ticket.archived == 'true'"> Désarchiver </div>
+    <div *ngIf="ticket.archived == 'false'"> Archiver</div>
+  
+  </button>
 </div>
